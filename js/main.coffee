@@ -31,6 +31,14 @@ getContent = ->
           html = "<div class=\"tab-pane\" id=\"section-#{sectionNumber}\">#{markdown.toHTML(decoded)}</div>"
           $("#content").fadeOut 200, ->
             $("#content").html html
+
+            # Slide toggle
+            $('.tab-pane h2').first().toggleClass 'first-question'
+            $('h2').nextUntil('h2').toggleClass 'hide'
+            $('h2').click ->
+                $(this).nextUntil('h2').slideToggle 250
+                $(this).toggleClass 'open'
+
             $("#section-tabs a[href=\"#section-#{sectionNumber}\"]").tab "show"
             $("#content").fadeIn 200
 

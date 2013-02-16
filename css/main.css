@@ -10,12 +10,25 @@ body {
 h2 {
 	font-size: 18px;
 	line-height: 24px;
-	margin: 36px 0 18px;
+	margin: 18px 0;
+  border-top: 1px solid #ddd; 
+  color: #08c;
+  padding-top: 18px;
 }
+
+h2:before { content:'▶'; font-size: 14px; font-weight: 700; line-height: 0; margin-right: 15px;}
+h2.open:before { content:'▼'; }
+.first-question { border-top: none; }
+h2:hover { color: #06a; cursor: pointer; }
 
 .affix {
   top: 40px;
 }
+
+.hide {
+  display: none;
+}
+
 
 /* Desktop large
 ------------------------- */

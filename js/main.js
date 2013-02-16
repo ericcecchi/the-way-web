@@ -52,6 +52,12 @@
             html = "<div class=\"tab-pane\" id=\"section-" + sectionNumber + "\">" + (markdown.toHTML(decoded)) + "</div>";
             return $("#content").fadeOut(200, function() {
               $("#content").html(html);
+              $('.tab-pane h2').first().toggleClass('first-question');
+              $('h2').nextUntil('h2').toggleClass('hide');
+              $('h2').click(function() {
+                $(this).nextUntil('h2').slideToggle(250);
+                return $(this).toggleClass('open');
+              });
               $("#section-tabs a[href=\"#section-" + sectionNumber + "\"]").tab("show");
               return $("#content").fadeIn(200);
             });
