@@ -29,6 +29,11 @@ h2:hover { color: #06a; cursor: pointer; }
   display: none;
 }
 
+#content p, #content li {
+  font-family: 'minion-pro', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
 
 /* Desktop large
 ------------------------- */

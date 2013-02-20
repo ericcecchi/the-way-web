@@ -16,6 +16,8 @@ if ($_GET["section"]) {
 }
 
 $url .= '?client_id=f3f313d272e7e8685ddb&client_secret=475285a6586698b53dd44da412192c58995bb1ae';
+// For testing
+// $url .= '&ref=additional-content';
 
 $curl = curl_init();
 // Set some options - we are passing in a useragent too here

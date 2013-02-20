@@ -56,9 +56,9 @@ getSections = ->
       if json
         html = "<li class=\"nav-header\">Sections</li>"
         $.each json, (index, item) ->
+          unless /.md/.test(item.name) then return true
           sectionNumber = /^[0-9]+/.exec(item.name)
           html += "<li><a href=\"#section-#{sectionNumber}\" data-section=\"#{item.name}\">#{/[^0-9-].*(?=.md)/.exec(item.name)[0].replace(/-/g, ' ')}</a></li>"
-          # html += "<a href=\"" + item.name + "\">" + /[^0-9-].*(?=.md)/.exec(item.name)[0].replace(/-/g, ' ') + "</a>"
 
         $("#section-tabs").html html
         $("#section-tabs").fadeIn 200

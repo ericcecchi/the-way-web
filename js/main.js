@@ -82,6 +82,9 @@
           html = "<li class=\"nav-header\">Sections</li>";
           $.each(json, function(index, item) {
             var sectionNumber;
+            if (!/.md/.test(item.name)) {
+              return true;
+            }
             sectionNumber = /^[0-9]+/.exec(item.name);
             return html += "<li><a href=\"#section-" + sectionNumber + "\" data-section=\"" + item.name + "\">" + (/[^0-9-].*(?=.md)/.exec(item.name)[0].replace(/-/g, ' ')) + "</a></li>";
           });
