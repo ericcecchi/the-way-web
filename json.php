@@ -1,21 +1,26 @@
 <?php
 
-header('Content-Type: application/json');
+require "vendor/Markdown.php";
+// Enable for debugging
+// ini_set('display_errors', 'On');
+// error_reporting(E_ALL | E_STRICT);
 
-$url = 'https://api.github.com/repos/ericcecchi/goldenripe-translations/contents/';
+header('Content-Type: application/json');
+$domain = $_SERVER['HTTP_HOST'];
+$prefix = $_SERVER['HTTPS'] ? 'https://' : 'http://';
+$url = $prefix.$domain.'/api/';
 // Get cURL resource
-if ($_GET["lang"]) {
+if (array_key_exists("lang", $_GET)) {
 	$url .= $_GET["lang"];
 }
 else {
 	$url .= 'en';
 }
 
-if ($_GET["section"]) {
+if (array_key_exists("section", $_GET)) {
 	$url .= '/'.$_GET["section"];
 }
-
-$url .= '?client_id=f3f313d272e7e8685ddb&client_secret=475285a6586698b53dd44da412192c58995bb1ae';
+$url .= '?sort=slug';
 // For testing
 // $url .= '&ref=additional-content';
 
@@ -26,6 +31,9 @@ curl_setopt_array($curl, array(
 	CURLOPT_URL => $url,
 ));
 // Send the request & save response to $resp
-echo curl_exec($curl);
+$resp = curl_exec($curl);
+$json = json_decode($resp, TRUE);
+if (array_key_exists("content", $json)) $json['content'] = Markdown($json['content']);
+echo json_encode($json);
 // Close request to clear up some resources
 curl_close($curl);

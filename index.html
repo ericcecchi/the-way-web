@@ -33,7 +33,7 @@
                         <a class="brand" href="#">The Way</a>
                         <ul class="nav pull-right">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Language <b class="caret"></b></a>
+                                <a id="current-language" href="#" class="dropdown-toggle" data-toggle="dropdown">Language <b class="caret"></b></a>
                                 <ul class="dropdown-menu" id="lang-menu">
                                     <li><a href="#en" data-language="en">English</a></li>
                                     <li><a href="#in" data-language="in">Bahasa Indonesia</a></li>
@@ -45,8 +45,16 @@
             </div>
             <div class="row">
                 <div class="span3">
-                    <ul id="section-tabs" class="nav nav-pills nav-stacked">
-                    </ul>
+                    <div id="sidebar">
+                        <ul id="section-tabs" class="nav nav-pills nav-stacked">
+                        </ul>
+                        <ul id="links" class="nav nav-pills nav-stacked">
+                            <li class="nav-header">Links</li>
+                            <li><a id="pdf-download" href="//goldenripe.org/theway/pdf/The-Way-en.pdf">Download PDF</a></li>
+                            <li><a href="//goldenripe.org/theway/ask">Ask a question</a></li>
+                            <li><a href="//goldenripe.org/theway/respond">Learn more</a></li>
+                        </ul>
+                    </div>
                     <br>
                 </div>
                 <div id="content" class="tab-content span9">
@@ -61,12 +69,15 @@
 
         </div> <!-- /container -->
 
+
+        <div id ="spinner" style="position:fixed;top:50%;left:50%"></div>
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/vendor/markdown.js"></script>
-        <script src="js/vendor/base64.js"></script>
+        <script src="js/vendor/spin.min.js"></script>
+        <script src="js/vendor/jquery.spin.js"></script>
         <script src="js/main.js"></script>
 
         <script>

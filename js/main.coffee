@@ -1,50 +1,57 @@
 getLanguage = ->
+  console.log "Getting language."
   lang = readCookie 'lang'
   if lang then lang else 'en'
 
 setLanguage = (lang) ->
+  console.log "Setting language."
   eraseCookie "lang"
+  $("#pdf-download").attr "href", "//goldenripe.org/theway/pdf/The-Way-#{lang}.pdf"
+  $("#current-language").html($("a[data-language=\"#{lang}\"]").text() + "<b class=\"caret\"></b>")
   createCookie "lang", lang, 9001
 
 getSection = ->
+  console.log "Getting section."
   section = readCookie "section"
   if section then section else $("#section-tabs a").first().attr('data-section')
 
 setSection = (section) ->
+  console.log "Setting section."
   eraseCookie "section"
   createCookie "section", section, 9001
 
 getContent = ->
+  console.log "Getting content."
   lang = getLanguage()
   section = getSection()
   sectionNumber = /^[0-9]+/.exec(section) if section
 
   $("#content").fadeOut 200, ->
-    $("#content").html "<h3>Loading...</h3>"
-    $("#content").fadeIn 200, ->
       $.ajax(
         url: "json.php?lang=" + lang + "&section=" + section
         dataType: "json"
       ).done (json) ->
         if json
-          decoded = Base64.decode(json.content).replace(/\<![ \r\n\t]*(--([^\-]|[\r\n]|-[^\-])*--[ \r\n\t]*)\>/,'') # Delete HTML comments
-          html = "<div class=\"tab-pane\" id=\"section-#{sectionNumber}\">#{markdown.toHTML(decoded)}</div>"
-          $("#content").fadeOut 200, ->
-            $("#content").html html
+          md = json.content.replace(/\<![ \r\n\t]*(--([^\-]|[\r\n]|-[^\-])*--[ \r\n\t]*)\>/,'') # Delete HTML comments
+          html = "<div class=\"tab-pane\" id=\"section-#{sectionNumber}\">#{md}</div>"
+          $("#content").html html
 
-            # Slide toggle
-            $('.tab-pane h2').first().toggleClass 'first-question'
-            $('h2').nextUntil('h2').toggleClass 'hide'
-            $('h2').click ->
-                $(this).nextUntil('h2').slideToggle 250
-                $(this).toggleClass 'open'
+          # Slide toggle
+          $('.tab-pane h2').first().toggleClass 'first-question'
+          $('h2').nextUntil('h2').toggleClass 'hide'
+          $('h2').click ->
+            $(this).nextUntil('h2').slideToggle 250
+            $(this).toggleClass 'open'
 
-            $("#section-tabs a[href=\"#section-#{sectionNumber}\"]").tab "show"
-            $("#content").fadeIn 200
+          $("#section-tabs a[href=\"#section-#{sectionNumber}\"]").tab "show"
+          $('#spinner').spin(false)
+          $("#content").fadeIn 200
 
 
 getSections = ->
+  console.log "Getting sections."
   lang = getLanguage()
+  setLanguage lang
 
   $("#content").fadeOut 200
   $("#section-tabs").fadeOut 200, ->
@@ -55,10 +62,9 @@ getSections = ->
       $("#content").html json
       if json
         html = "<li class=\"nav-header\">Sections</li>"
-        $.each json, (index, item) ->
-          unless /.md/.test(item.name) then return true
-          sectionNumber = /^[0-9]+/.exec(item.name)
-          html += "<li><a href=\"#section-#{sectionNumber}\" data-section=\"#{item.name}\">#{/[^0-9-].*(?=.md)/.exec(item.name)[0].replace(/-/g, ' ')}</a></li>"
+        $.each json.items, (index, item) ->
+          sectionNumber = /^[0-9]+/.exec(item.meta.slug)
+          html += "<li><a href=\"#section-#{sectionNumber}\" data-section=\"#{item.meta.slug}\">#{/[^0-9-].*/.exec(item.meta.slug)[0].replace(/-/g, ' ')}</a></li>"
 
         $("#section-tabs").html html
         $("#section-tabs").fadeIn 200
@@ -94,11 +100,18 @@ eraseCookie = (name) ->
   createCookie name, "", -1
 
 $(document).ready ->
+  $("#spinner").spin({
+    lines: 9
+    length: 2
+    width: 10
+    radius: 20
+  })
+
   $window = $(window)
 
   # side bar
   setTimeout (->
-    $("#section-tabs").affix offset:
+    $("#sidebar").affix offset:
       top: 40
       bottom: 0
   ), 100
@@ -107,7 +120,14 @@ $(document).ready ->
 
   $("#lang-menu a").click (e) ->
     e.preventDefault()
-    setLanguage $(this).attr('data-language')
+    $("#spinner").spin({
+      lines: 9
+      length: 2
+      width: 10
+      radius: 20
+    })
+    lang = $(this).attr('data-language')
+    setLanguage lang
     eraseCookie 'section'
     getSections()
 
