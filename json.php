@@ -1,6 +1,6 @@
 <?php
 
-require "vendor/Markdown.php";
+require "vendor/markdown.php";
 // Enable for debugging
 // ini_set('display_errors', 'On');
 // error_reporting(E_ALL | E_STRICT);
@@ -8,7 +8,7 @@ require "vendor/Markdown.php";
 header('Content-Type: application/json');
 $domain = $_SERVER['HTTP_HOST'];
 $prefix = $_SERVER['HTTPS'] ? 'https://' : 'http://';
-$url = $prefix.$domain.'/api/';
+$url = $prefix.$domain.'/theway/api/';
 // Get cURL resource
 if (array_key_exists("lang", $_GET)) {
 	$url .= $_GET["lang"];
