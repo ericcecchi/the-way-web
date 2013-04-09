@@ -1,0 +1,93 @@
+splash_quote: “The Spirit searches all things, even the deep things of God. These are the things God has revealed to us by his Spirit.” 
+splash_citation: 1 Corinthians 2:10
+menu_name: Main Menu
+night_theme_toggle_title: Night Theme
+night_theme_toggle_summary: Enable to use a dark theme when viewing answers.
+splash_toggle_title: Splash Screen
+splash_toggle_summary: Turn off to disable the splash screen when the app launches.
+appearance_preferences: Appearance Preferences
+content_preferences: Content Preferences
+title_language_preference: Language
+summary_language_preference: Change the language of the app\'s content.
+dialog_title_language_preference: Select language
+entries_language_preference: 
+  - English
+  - Indonesian
+entryvalues_language_preference: 
+  - en
+  - in
+settings: Settings
+about: About
+debug: Debug
+ask: Ask a Question
+about_text:
+    ©2011 GoldenRipe \nAll rights reserved. \nwww.goldenripe.org \n\nContent supported by\nPartners International
+    \nwww.partnersintl.org
+    \n\nThe Qur’an: translated by\n(Mohammed) Marmaduke Pickthall \nThe Bible: New International Version
+ask_text: Do you have a question that was not answered in this app? Use the form below to ask a question or leave a comment.
+feedbacktypelist: 
+  - Question
+  - Comment
+  - Bug
+  - Feature Request
+feedbackname: Your Name (Optional)
+feedbacktype: Select feedback type
+feedbackbody: Your Message
+feedbackbutton: Send Feedback
+emailTo: theway@goldenripe.org
+cancel: Discard
+no_section: Select a section from the list.
+
+done: Done
+send: Send
+send_email: Send via E-Mail
+
+questions: Questions
+your_response: Your Response
+feedback: Feedback
+look: Look for yourself
+
+text_size: Text Size
+languages: Languages
+modules: Modules
+
+tabbar_names: 
+  - The Way
+  - Respond
+  - Feedback
+  - Explore
+  - Settings
+
+explore: 
+  - Qur’an
+  - Bible
+  - Pro-Islam Comparison
+  - Pro-Christian Comparison
+  - Video Resources on Islam
+  - Video Resources on Jesus
+  - Pro-Islam Story
+  - Pro-Christian Story   
+
+explore_link: 
+  - http://www.quran.com/
+  - http://www.biblegateway.com/
+  - http://www.bibleislam.com
+  - http://www.answering-islam.org/
+  - http://www.media-and-learning.eu/resource/video-resource-100-questions-on-islam
+  - http://www.jesusfilm.org/film-and-media/watch-the-film
+  - http://www.why-christians-convert-to-islam.com/
+  - http://www.kamalsaleem.com/   
+
+response_questions: 
+  - Where in the Qur’an does it say the Bible has been corrupted?
+  - If you feel the Bible is so corrupted, than why do you quote Deuteronomy 18:18 and John 16:13 as uncorrupted prophecies of Muhammad’s coming?
+  - The Bible contains 333 prophecies about Jesus given 1,000 years before Jesus’ birth. What is the single most remarkable prophecy that Muhammad fulfilled?
+  - Muslims always pray in exactly the same way with the same words every day. Doesn’t that make prayer just a routine?
+  - Why do Muslims kiss the black stone found on the side of the Kaabah when they are on the Hajj pilgrimage?
+  - Adam committed one sin which resulted in him being expelled from Paradise. How can we, who have committed many more sins than Adam, hope to enter Paradise?
+  - What does it mean that Jesus is the most prominent in heaven? (Sura Al ‘Imran 3:45).
+  - If one enters Paradise by doing good works and Muhammad did the most good works, then why did he say, “I don’t know what will happen to me or to you?”
+  - All Muslims pray for Muhammad every day so that he will enter Paradise. Who will pray for you?
+  - The Qur’an says, “And, by thy Lord, verily We shall assemble them and the devils, then We shall bring them, crouching, around hell… There is not one of you but shall approach it. That is a fixed ordinance of thy Lord” (Sura Maryam 19:68, 71). What happens to all Muslims after they die?
+  - The Qur’an says, “To those who believe and do deeds of righteousness hath Allah promised forgiveness and a great reward” (Sura al-Ma’ida 5:9).  Are you doing enough good deeds to receive salvation on the Day of Judgment?
+  - Would you be willing to pray with an honest heart and ask God to guide you to His truth, even if that truth is found in the Bible and not in Islam?
