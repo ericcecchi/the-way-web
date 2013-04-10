@@ -70,6 +70,7 @@ getSections = ->
         $("#section-tabs").fadeIn 200
         $("#section-tabs a").click (e) ->
           e.preventDefault()
+          if $(this).parent().hasClass 'active' then return
           $("html, body").animate({ scrollTop: 0 }, 400)
           setSection $(this).attr('data-section')
           getContent()

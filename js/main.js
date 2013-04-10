@@ -94,6 +94,9 @@
           $("#section-tabs").fadeIn(200);
           $("#section-tabs a").click(function(e) {
             e.preventDefault();
+            if ($(this).parent().hasClass('active')) {
+              return;
+            }
             $("html, body").animate({
               scrollTop: 0
             }, 400);
