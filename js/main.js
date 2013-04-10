@@ -16,7 +16,7 @@
   setLanguage = function(lang) {
     console.log("Setting language.");
     eraseCookie("lang");
-    $("#pdf-download").attr("href", "//goldenripe.org/theway/pdf/The-Way-" + lang + ".pdf");
+    $("#pdf-download").attr("href", "/theway/content/" + lang + "/The-Way-" + lang + ".pdf");
     $("#current-language").html($("a[data-language=\"" + lang + "\"]").text() + "<b class=\"caret\"></b>");
     return createCookie("lang", lang, 9001);
   };

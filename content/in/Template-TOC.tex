@@ -1,0 +1,137 @@
+\documentclass[11pt,letter,oneside,bibtotocnumbered,liststotocnumbered,pointlessnumbers,DIV=calc,BCOR=16mm]{scrreprt}
+\usepackage[nosectionbib]{apacite}
+\usepackage{amsmath}
+\usepackage{ifxetex}
+
+\ifxetex
+  \usepackage[linktocpage=true,setpagesize=false, % page size defined by xetex
+            unicode=false, % unicode breaks when used with xetex
+            xetex]{hyperref}  \usepackage{fontspec,xltxtra,xunicode}
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \setromanfont{Minion Pro}
+%  \setsansfont[UprightFont=*-Roman,BoldFont=*-Bd,ItalicFont=*-It,BoldItalicFont=*-BdIt]{HelveticaNeueLTPro}
+  \setsansfont{Helvetica}
+  \setmonofont{Lekton}
+\else
+  \usepackage[mathletters]{ucs}
+  \usepackage[utf8x]{inputenc}
+  \usepackage[unicode=true]{hyperref}
+\fi
+
+\usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
+\definecolor{Blueish}{RGB}{0 172 237}
+\definecolor{Reddish}{RGB}{173 29 40}
+
+\usepackage{sectsty}
+\usepackage{fix-cm}
+\chapterfont{\color{black}\fontsize{44}{32}\selectfont}
+\chapternumberfont{\color{Blueish}\fontsize{44}{32}\selectfont}
+\sectionfont{\Large}
+
+%use line breaks instead of indentation
+\usepackage[parfill]{parskip}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+
+\usepackage{natbib}
+\usepackage[left=2cm, right=2cm, bottom=3.5cm, papersize={8.5in,11in}]{geometry}
+
+% Euro-Symbol
+\usepackage{textcomp}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+$if(fancy-enums)$
+% Redefine labelwidth for lists; otherwise, the enumerate package will cause
+% markers to extend beyond the left margin.
+\makeatletter\AtBeginDocument{%
+  \renewcommand{\@listi}
+    {\setlength{\labelwidth}{4em}}
+}\makeatother
+\usepackage{enumerate}
+$endif$
+
+\usepackage{tabularx}
+\usepackage{fancyvrb}
+\usepackage{ctable}
+\usepackage{float} % provides the H option for float placement
+
+% Package for including code in the document
+$if(listings)$
+\usepackage{listings}
+\lstset{breaklines=true,breakautoindent=false,breakindent=0pt,basicstyle=\ttfamily}
+$endif$
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+% Surround parts of graphics with box
+\usepackage{boxedminipage}
+
+% This is now the recommended way for checking for PDFLaTeX:
+\usepackage{ifpdf}
+
+$if(graphics)$
+\usepackage{graphicx}
+% We will generate all images so they have a width \maxwidth. This means
+% that they will get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+\else\Gin@nat@width\fi}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+\renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=\maxwidth]{#1}}
+$endif$
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\lhead{}
+\cfoot{\copyright2013 Goldenripe}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={$author-meta$},
+            pdftitle={$title-meta$},
+            colorlinks=true,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$Blueish$endif$,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$Blueish$endif$,
+            pdfborder={0 0 0}}
+
+\title{ untitled }
+
+\author{  }
+
+\linespread{1.2}
+
+\setcounter{secnumdepth}{0}
+\VerbatimFootnotes % allows verbatim text in footnotes
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+$if(title)$
+\title{$title$}
+$endif$
+\author{$for(author)$$author$$sep$\\$endfor$}
+$if(date)$
+\date{$date$}
+$endif$
+
+\begin{document}
+$if(title)$
+\maketitle
+$endif$
+$if(toc)$
+\pagenumbering{roman}
+\tableofcontents
+\newpage
+$endif$
+\pagenumbering{arabic}
+
+$body$
+
+\end{document}
