@@ -19,8 +19,11 @@ else {
 
 if (array_key_exists("section", $_GET)) {
 	$url .= '/'.$_GET["section"];
+	$url .= '?sort=slug';
 }
-$url .= '?sort=slug';
+else {
+	$url .= '?sort=slug&content=false';
+}
 // For testing
 // $url .= '&ref=additional-content';
 

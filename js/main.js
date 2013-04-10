@@ -76,7 +76,7 @@
     lang = getLanguage();
     setLanguage(lang);
     $("#content").fadeOut(200);
-    return $("#section-tabs").fadeOut(200, function() {
+    return $("#sidebar").fadeOut(200, function() {
       return $.ajax({
         url: "json.php?lang=" + lang,
         dataType: "json"
@@ -91,7 +91,7 @@
             return html += "<li><a href=\"#section-" + sectionNumber + "\" data-section=\"" + item.meta.slug + "\">" + (/[^0-9-].*/.exec(item.meta.slug)[0].replace(/-/g, ' ')) + "</a></li>";
           });
           $("#section-tabs").html(html);
-          $("#section-tabs").fadeIn(200);
+          $("#sidebar").fadeIn(200);
           $("#section-tabs a").click(function(e) {
             e.preventDefault();
             if ($(this).parent().hasClass('active')) {

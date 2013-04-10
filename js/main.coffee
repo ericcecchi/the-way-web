@@ -54,7 +54,7 @@ getSections = ->
   setLanguage lang
 
   $("#content").fadeOut 200
-  $("#section-tabs").fadeOut 200, ->
+  $("#sidebar").fadeOut 200, ->
     $.ajax(
       url: "json.php?lang=" + lang
       dataType: "json"
@@ -67,7 +67,7 @@ getSections = ->
           html += "<li><a href=\"#section-#{sectionNumber}\" data-section=\"#{item.meta.slug}\">#{/[^0-9-].*/.exec(item.meta.slug)[0].replace(/-/g, ' ')}</a></li>"
 
         $("#section-tabs").html html
-        $("#section-tabs").fadeIn 200
+        $("#sidebar").fadeIn 200
         $("#section-tabs a").click (e) ->
           e.preventDefault()
           if $(this).parent().hasClass 'active' then return
