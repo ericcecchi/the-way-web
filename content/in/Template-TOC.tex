@@ -19,13 +19,13 @@
 \fi
 
 \usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
-\definecolor{Blueish}{RGB}{0 172 237}
+\definecolor{Greenish}{RGB}{58 152 72}
 \definecolor{Reddish}{RGB}{173 29 40}
 
 \usepackage{sectsty}
 \usepackage{fix-cm}
 \chapterfont{\color{black}\fontsize{44}{32}\selectfont}
-\chapternumberfont{\color{Blueish}\fontsize{44}{32}\selectfont}
+\chapternumberfont{\color{Greenish}\fontsize{44}{32}\selectfont}
 \sectionfont{\Large}
 
 %use line breaks instead of indentation
@@ -88,7 +88,7 @@ $endif$
 \pagestyle{fancy}
 
 \lhead{}
-\cfoot{\copyright2013 Goldenripe}
+\cfoot{\copyright2013 GoldenRipe}
 \rfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 
@@ -97,8 +97,8 @@ $endif$
             pdfauthor={$author-meta$},
             pdftitle={$title-meta$},
             colorlinks=true,
-            urlcolor=$if(urlcolor)$$urlcolor$$else$Blueish$endif$,
-            linkcolor=$if(linkcolor)$$linkcolor$$else$Blueish$endif$,
+            urlcolor=$if(urlcolor)$$urlcolor$$else$Greenish$endif$,
+            linkcolor=$if(linkcolor)$$linkcolor$$else$Greenish$endif$,
             pdfborder={0 0 0}}
 
 \title{ untitled }
