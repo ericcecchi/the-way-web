@@ -27,6 +27,13 @@ getContent = ->
   sectionNumber = /^[0-9]+/.exec(section) if section
 
   $("#content").fadeOut 200, ->
+      $("#spinner").spin({
+        lines: 9
+        length: 2
+        width: 10
+        radius: 20
+      })
+
       $.ajax(
         url: "json.php?lang=" + lang + "&section=" + section
         dataType: "json"
@@ -121,12 +128,6 @@ $(document).ready ->
 
   $("#lang-menu a").click (e) ->
     e.preventDefault()
-    $("#spinner").spin({
-      lines: 9
-      length: 2
-      width: 10
-      radius: 20
-    })
     lang = $(this).attr('data-language')
     setLanguage lang
     eraseCookie 'section'
