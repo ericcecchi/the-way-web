@@ -1,0 +1,87 @@
+/* ==========================================================================
+   Custom styles
+   ========================================================================== */
+
+body {
+  padding-top: 20px !important;
+  padding-bottom: 40px;
+}
+
+#loading-spinner {
+  text-align: center;
+}
+
+h2 {
+	font-size: 18px;
+	line-height: 24px;
+	margin: 18px 0;
+  padding-top: 18px;
+}
+
+.affix {
+  top: 40px;
+}
+
+.hide {
+  display: none;
+}
+
+#content p, #content li {
+  font-family: 'minion-pro', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Desktop large
+------------------------- */
+@media (min-width: 1200px) {
+  #section-tabs {
+    width: 258px;
+  }
+  #section-tabs > li > a {
+    width: 230px \9; /* Override the previous IE8-9 hack */
+  }
+}
+
+/* Desktop
+------------------------- */
+@media (min-width: 980px) {
+
+  /* When affixed, space properly */
+  #section-tabs {
+    width: 218px;
+    margin-top: 30px;
+    margin-right: 0;
+  }
+}
+
+/* Tablet to desktop
+------------------------- */
+@media (min-width: 768px) and (max-width: 979px) {
+  /* Adjust sidenav width */
+  #section-tabs {
+    width: 166px;
+    margin-top: 20px;
+  }
+}
+
+/* Tablet
+------------------------- */
+@media (max-width: 767px) {
+  /* Sidenav */
+  #section-tabs {
+    width: auto;
+    margin-bottom: 20px;
+  }
+	.affix {
+    position: static;
+    width: auto;
+  }
+
+}
+
+/* Landscape phones
+------------------------- */
+@media (max-width: 480px) {
+  
+}
