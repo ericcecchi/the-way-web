@@ -30,9 +30,6 @@ if ($enable_js == 'true') {
   echo file_get_contents('dynamic.html');
 }
 else {
-// Enable for debugging
-ini_set('display_errors', 'On');
-error_reporting(E_ALL | E_STRICT);
 
 function get_json($params) {
   $prefix = 'http://';
@@ -77,7 +74,8 @@ else {
 }
 setcookie('section', $section, $expire, '/');
 
-$content = get_json('?lang='.$lang.'&section='.$section)['content'];
+$content = get_json('?lang='.$lang.'&section='.$section);
+$content = $content['content'];
 
 ?>
 <!DOCTYPE html>

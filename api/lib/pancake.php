@@ -111,14 +111,7 @@ class Pancake {
 		}
 		closedir($dir);
 
-		usort($items, function($a, $b) {
-			$sort = $this->params['sort'];
-			$order = $this->params['order'];
-			if (array_key_exists($sort, $b['meta']) && array_key_exists($sort, $a['meta'])) {
-				if ($order == 'asc') return ($b['meta'][$sort] > $a['meta'][$sort]) ? -1 : 1;
-				else return ($b['meta'][$sort] < $a['meta'][$sort]) ? -1 : 1;
-			}
-		});
+		usort($items, "sort_items");
 
 		return $items;
 	}
@@ -133,5 +126,14 @@ class Pancake {
 		header('Content-Type: application/json');
 		header('Access-Control-Allow-Origin: *');
 		echo json_encode($json);
+	}
+	
+	private function sort_items($a, $b) {
+		$sort = $this->params['sort'];
+		$order = $this->params['order'];
+		if (array_key_exists($sort, $b['meta']) && array_key_exists($sort, $a['meta'])) {
+			if ($order == 'asc') return ($b['meta'][$sort] > $a['meta'][$sort]) ? -1 : 1;
+			else return ($b['meta'][$sort] < $a['meta'][$sort]) ? -1 : 1;
+		}
 	}
 }
