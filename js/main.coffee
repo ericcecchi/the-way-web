@@ -6,7 +6,7 @@ getLanguage = ->
 setLanguage = (lang) ->
   console.log "Setting language."
   eraseCookie "lang"
-  $("#pdf-download").attr "href", "/theway/content/#{lang}/The-Way-#{lang}.pdf"
+  $("#pdf-download").attr "href", "http://goldenripe.org/theway/content/#{lang}/The-Way-#{lang}.pdf"
   $("#current-language").html($("a[data-language=\"#{lang}\"]").text() + "<b class=\"caret\"></b>")
   createCookie "lang", lang, 9001
 
@@ -35,7 +35,7 @@ getContent = ->
       })
 
       $.ajax(
-        url: "json.php?lang=" + lang + "&section=" + section
+        url: "http://goldenripe.org/theway/json.php?lang=" + lang + "&section=" + section
         dataType: "json"
       ).done (json) ->
         if json
@@ -63,7 +63,7 @@ getSections = ->
   $("#content").fadeOut 200
   $("#sidebar").fadeOut 200, ->
     $.ajax(
-      url: "json.php?lang=" + lang
+      url: "http://goldenripe.org/theway/json.php?lang=" + lang
       dataType: "json"
     ).done (json) ->
       $("#content").html json

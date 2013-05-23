@@ -1,8 +1,0 @@
-RewriteEngine on
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^([^/][0-9].*)?$ /theway/index.php?section=$1 [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^api/.* /theway/api/index.php [L]
