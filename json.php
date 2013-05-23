@@ -6,6 +6,7 @@ require "vendor/markdown.php";
 // error_reporting(E_ALL | E_STRICT);
 
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
 $domain = $_SERVER['HTTP_HOST'];
 $prefix = $_SERVER['HTTPS'] ? 'https://' : 'http://';
 $url = $prefix.$domain.'/theway/api/';
