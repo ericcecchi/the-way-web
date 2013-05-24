@@ -3,7 +3,7 @@
    ========================================================================== */
 
 body {
-  padding-top: 20px !important;
+  padding-top: 60px !important;
   padding-bottom: 40px;
 }
 
@@ -15,7 +15,7 @@ h2 {
 	font-size: 18px;
 	line-height: 24px;
 	margin: 18px 0;
-  border-top: 1px solid #ddd; 
+  border-top: 1px solid #ddd;
   color: #08c;
   padding-top: 18px;
 }
@@ -70,6 +70,13 @@ h2:hover { color: #06a; cursor: pointer; }
     width: 166px;
     margin-top: 20px;
   }
+
+  .navbar-fixed-top {
+    position: fixed;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
 }
 
 /* Tablet
@@ -85,10 +92,16 @@ h2:hover { color: #06a; cursor: pointer; }
     width: auto;
   }
 
+  .navbar-fixed-top {
+    position: fixed;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
 }
 
 /* Landscape phones
 ------------------------- */
 @media (max-width: 480px) {
-  
+
 }
