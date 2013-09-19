@@ -132,7 +132,7 @@ $content = $content['content'];
                             <li class="nav-header">Links</li>
                             <li><a id="pdf-download" href="/theway/content/<?php echo $lang; ?>/The-Way-<?php echo $lang; ?>.pdf">Download PDF</a></li>
                             <li><a href="//goldenripe.org/app/ask">Ask a question</a></li>
-                            <li><a href="//goldenripe.org/a[[/respond">Learn more</a></li>
+                            <li><a href="//goldenripe.org/app/respond">Learn more</a></li>
                         </ul>
                     </div>
                     <br>
