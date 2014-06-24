@@ -5,19 +5,26 @@
 body {
   padding-top: 20px !important;
   padding-bottom: 40px;
+  font-size: 13px;
 }
 
 #spinner {
   text-align: center;
 }
 
+h1 {
+  font-size: 2.2em;
+  line-height: 1.2;
+  margin: 1.65em 0 .8em;
+}
+
 h2 {
-	font-size: 18px;
-	line-height: 24px;
-	margin: 18px 0;
-  border-top: 1px solid #ddd; 
+	font-size: 1.4em;
+	line-height: 1.2;
+	margin: 1em 0;
+  border-top: 1px solid #ddd;
   color: #08c;
-  padding-top: 18px;
+  padding-top: 1em;
 }
 
 h2:before { content:'▶'; font-size: 14px; font-weight: 700; line-height: 0; margin-right: 15px;}
@@ -33,10 +40,14 @@ h2:hover { color: #06a; cursor: pointer; }
   display: none;
 }
 
-#content p, #content li {
+#content p, #content blockquote {
   font-family: 'minion-pro', Georgia, serif;
-  font-size: 18px;
-  line-height: 1.5;
+  font-size: 1.1em;
+  line-height: 1.65;
+}
+
+#content p, #content blockquote {
+  margin: 0 0 1.65em;
 }
 
 /* Desktop large
@@ -53,6 +64,9 @@ h2:hover { color: #06a; cursor: pointer; }
 /* Desktop
 ------------------------- */
 @media (min-width: 980px) {
+  body {
+    font-size: 16px;
+  }
 
   /* When affixed, space properly */
   #section-tabs {
@@ -65,6 +79,9 @@ h2:hover { color: #06a; cursor: pointer; }
 /* Tablet to desktop
 ------------------------- */
 @media (min-width: 768px) and (max-width: 979px) {
+  body {
+    font-size: 14px;
+  }
   /* Adjust sidenav width */
   #section-tabs {
     width: 166px;
@@ -90,5 +107,5 @@ h2:hover { color: #06a; cursor: pointer; }
 /* Landscape phones
 ------------------------- */
 @media (max-width: 480px) {
-  
+
 }
