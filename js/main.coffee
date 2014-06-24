@@ -13,7 +13,7 @@ setLanguage = (lang) ->
 getSection = ->
   console.log "Getting section."
   section = readCookie "section"
-  if section then section else $("#section-tabs a").first().attr('data-section')
+  if section then section else "index"
 
 setSection = (section) ->
   console.log "Setting section."
@@ -24,7 +24,11 @@ getContent = ->
   console.log "Getting content."
   lang = getLanguage()
   section = getSection()
-  sectionNumber = /^[0-9]+/.exec(section) if section
+
+  if section is "index"
+    sectionNumber = "index"
+  else
+    sectionNumber = /^[0-9]+/.exec(section) if section
 
   $("#content").fadeOut 200, ->
       $("#spinner").spin({
@@ -38,6 +42,7 @@ getContent = ->
         url: "json.php?lang=" + lang + "&section=" + section
         dataType: "json"
       ).done (json) ->
+        console.log json
         if json
           md = json.content.replace(/\<![ \r\n\t]*(--([^\-]|[\r\n]|-[^\-])*--[ \r\n\t]*)\>/,'') # Delete HTML comments
           html = "<div class=\"tab-pane\" id=\"section-#{sectionNumber}\">#{md}</div>"
@@ -50,7 +55,7 @@ getContent = ->
             $(this).nextUntil('h2').slideToggle 250
             $(this).toggleClass 'open'
 
-          $("#section-tabs a[href=\"#section-#{sectionNumber}\"]").tab "show"
+          $("a[href=\"#section-#{sectionNumber}\"]").tab "show"
           $('#spinner').spin(false)
           $("#content").fadeIn 200
 
@@ -75,9 +80,9 @@ getSections = ->
 
         $("#section-tabs").html html
         $("#sidebar").fadeIn 200
-        $("#section-tabs a").click (e) ->
+        $("a[data-section]").click (e) ->
           e.preventDefault()
-          if $(this).parent().hasClass 'active' then return
+          if $(this).parent().hasClass 'active' then return else $("a[data-section]").parent().removeClass 'active'
           $("html, body").animate({ scrollTop: 0 }, 400)
           setSection $(this).attr('data-section')
           getContent()
@@ -100,7 +105,7 @@ readCookie = (name) ->
   while i < ca.length
     c = ca[i]
     c = c.substring(1, c.length)  while c.charAt(0) is " "
-    return c.substring(nameEQ.length, c.length)  if c.indexOf(nameEQ) is 0
+    return c.substring(nameEQ.length, c.length) if c.indexOf(nameEQ) is 0
     i++
   return null
 
@@ -132,4 +137,3 @@ $(document).ready ->
     setLanguage lang
     eraseCookie 'section'
     getSections()
-
