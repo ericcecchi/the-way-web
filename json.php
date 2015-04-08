@@ -9,7 +9,7 @@ header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 $domain = $_SERVER['HTTP_HOST'];
 $prefix = $_SERVER['HTTPS'] ? 'https://' : 'http://';
-$url = $prefix.$domain.'/theway/api/';
+$url = $prefix.$domain.'/api/';
 // Get cURL resource
 if (array_key_exists("lang", $_GET)) {
 	$url .= $_GET["lang"];

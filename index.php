@@ -34,7 +34,7 @@ else {
 function get_json($params) {
   $prefix = 'http://';
   $domain = $_SERVER['HTTP_HOST'];
-  $path = '/theway/json.php';
+  $path = '/json.php';
   $url = $prefix.$domain.$path.$params;
 
   $curl = curl_init();
@@ -106,8 +106,8 @@ $content = $content['content'];
                     <div class="container">
                         <a class="brand" href="#">The Way</a>
                         <ul class="nav pull-right">
-                          <li><a href="/theway/?lang=en">English</a></li>
-                          <li><a href="/theway/?lang=in" data-language="in">Bahasa Indonesia</a></li>
+                          <li><a href="/?lang=en">English</a></li>
+                          <li><a href="/?lang=in" data-language="in">Bahasa Indonesia</a></li>
                         </ul>
                     </div>
                 </div>
@@ -125,12 +125,12 @@ $content = $content['content'];
                             else {
                               echo '<li>';
                             }
-                          ?><a href="/theway/<?php echo $a_section['meta']['slug']; ?>"><?php echo preg_replace('/-/', ' ', preg_replace('/^[0-9-]*/', '', $a_section['meta']['slug'])); ?></a></li>
+                          ?><a href="/<?php echo $a_section['meta']['slug']; ?>"><?php echo preg_replace('/-/', ' ', preg_replace('/^[0-9-]*/', '', $a_section['meta']['slug'])); ?></a></li>
                           <?php } ?>
                         </ul>
                         <ul id="links" class="nav nav-pills nav-stacked">
                             <li class="nav-header">Links</li>
-                            <li><a id="pdf-download" href="/theway/content/<?php echo $lang; ?>/The-Way-<?php echo $lang; ?>.pdf">Download PDF</a></li>
+                            <li><a id="pdf-download" href="/content/<?php echo $lang; ?>/The-Way-<?php echo $lang; ?>.pdf">Download PDF</a></li>
                             <li><a href="//goldenripe.org/app/ask">Ask a question</a></li>
                             <li><a href="//goldenripe.org/app/respond">Learn more</a></li>
                         </ul>
@@ -145,7 +145,7 @@ $content = $content['content'];
             <hr>
 
             <footer>
-                <p>Got Javascript? Try switching to the dynamic <a href="/theway/?js=true">web app</a>.</p>
+                <p>Got Javascript? Try switching to the dynamic <a href="/?js=true">web app</a>.</p>
                 <p>&copy; 2013 GoldenRipe. Web app developed by <a href="//back3nd.com">Eric Cecchi</a>. Content by <a href="//goldenripe.org">GoldenRipe</a>.</p>
             </footer>
 
